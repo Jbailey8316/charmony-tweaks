@@ -1,7 +1,6 @@
 package svenhjol.charmony.tweaks.client.features.totem_emergency_swap;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.inventory.ClickType;
 import net.minecraft.world.inventory.Slot;
@@ -56,22 +55,19 @@ public class Handlers extends Setup<TotemEmergencySwap> {
             return;
         }
 
-        swapTicks = 1;
-        minecraft.setScreen(new InventoryScreen(player));
+        findAndSwap(minecraft);
     }
 
     public void findAndSwap(Minecraft minecraft) {
         var player = minecraft.player;
         if (player == null) return;
 
-        var screen = minecraft.screen;
-        if (!(screen instanceof InventoryScreen inventoryScreen)) return;
-        var menu = inventoryScreen.getMenu();
+        var menu = player.inventoryMenu;
 
         var startIndex = 0;
         var endIndex = 44;
         var slots = menu.slots;
-        if (slots.size() < 45) return;
+        if (slots.size() <= 45) return;
         var offhandSlot = slots.get(45);
         var itemInOffhand = offhandSlot.getItem();
 
@@ -84,9 +80,12 @@ public class Handlers extends Setup<TotemEmergencySwap> {
             if (canUseSlotIndex(slot, startIndex, endIndex)) {
                 var stack = slot.getItem();
                 if (stack.is(Items.TOTEM_OF_UNDYING)) {
-                    inventoryScreen.slotClicked(slot, slot.getContainerSlot(), 0, ClickType.PICKUP);
-                    inventoryScreen.slotClicked(offhandSlot, offhandSlot.getContainerSlot(), 0, ClickType.PICKUP);
-                    inventoryScreen.slotClicked(slot, slot.getContainerSlot(), 0, ClickType.PICKUP);
+                    var gameMode = minecraft.gameMode;
+                    if (gameMode == null) return;
+
+                    gameMode.handleInventoryMouseClick(menu.containerId, slot.index, 0, ClickType.PICKUP, player);
+                    gameMode.handleInventoryMouseClick(menu.containerId, offhandSlot.index, 0, ClickType.PICKUP, player);
+                    gameMode.handleInventoryMouseClick(menu.containerId, slot.index, 0, ClickType.PICKUP, player);
                     return;
                 }
             }
