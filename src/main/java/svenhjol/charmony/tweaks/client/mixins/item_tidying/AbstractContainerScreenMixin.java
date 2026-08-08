@@ -1,6 +1,7 @@
 package svenhjol.charmony.tweaks.client.mixins.item_tidying;
 
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.input.KeyEvent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -13,7 +14,7 @@ public class AbstractContainerScreenMixin {
         method = "keyPressed",
         at = @At("HEAD")
     )
-    private void hookKeyPressed(int i, int j, int k, CallbackInfoReturnable<Boolean> cir) {
-        ItemTidying.feature().handlers.handleKeypress(i, j, k);
+    private void hookKeyPressed(KeyEvent keyEvent, CallbackInfoReturnable<Boolean> cir) {
+        ItemTidying.feature().handlers.handleKeypress(keyEvent);
     }
 }

@@ -1,13 +1,13 @@
 package svenhjol.charmony.tweaks.client.features.mob_textures;
 
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientEntityEvents;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import svenhjol.charmony.core.base.Setup;
+import svenhjol.charmony.core.client.ClientRegistry;
 import svenhjol.charmony.tweaks.client.features.mob_textures.custom_renderers.CustomSnowGolemRenderer;
 import svenhjol.charmony.tweaks.client.features.mob_textures.custom_renderers.CustomWanderingTraderRenderer;
 
@@ -25,8 +25,14 @@ public class Registers extends Setup<MobTextures> {
     @Override
     public Runnable boot() {
         return () -> {
-            if (feature().snowGolems()) EntityRendererRegistry.register(EntityType.SNOW_GOLEM, CustomSnowGolemRenderer::new);
-            if (feature().wanderingTraders()) EntityRendererRegistry.register(EntityType.WANDERING_TRADER, CustomWanderingTraderRenderer::new);
+            var registry = ClientRegistry.forFeature(feature());
+
+            if (feature().snowGolems()) {
+                registry.entityRenderer(EntityType.SNOW_GOLEM, CustomSnowGolemRenderer::new);
+            }
+            if (feature().wanderingTraders()) {
+                registry.entityRenderer(EntityType.WANDERING_TRADER, CustomWanderingTraderRenderer::new);
+            }
 
             ClientEntityEvents.ENTITY_LOAD.register(this::clientEntityLoad);
         };

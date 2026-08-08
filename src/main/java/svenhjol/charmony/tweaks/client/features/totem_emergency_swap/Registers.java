@@ -14,7 +14,7 @@ public class Registers extends Setup<TotemEmergencySwap> {
         this.swapTotemKey = KeyBindingHelper.registerKeyBinding(new KeyMapping(
             "key.charmony.swapTotem",
             GLFW.GLFW_KEY_Z,
-            "key.categories.inventory"));
+            KeyMapping.Category.INVENTORY));
     }
 
     @Override

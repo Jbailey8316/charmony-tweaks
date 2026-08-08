@@ -19,7 +19,7 @@ public class ChickenDrops extends Setup<MobDrops> implements DropProvider {
     public Optional<ItemStack> dropByChance(LivingEntity entity) {
         if (entity instanceof Chicken chicken) {
             if (chicken.isAlive()
-                && !chicken.level().isClientSide
+                && !chicken.level().isClientSide()
                 && !chicken.isBaby()
                 && !chicken.isChickenJockey()
                 && chicken.level().random.nextInt(feature().featherDropChance()) == 0

@@ -18,7 +18,7 @@ public class Registers extends Setup<CraftingTableNearby> {
         this.openCraftingKey = KeyBindingHelper.registerKeyBinding(new KeyMapping(
             "key.charmony.openCrafting",
             GLFW.GLFW_KEY_V,
-            "key.categories.misc"));
+            KeyMapping.Category.MISC));
     }
 
     @Override

@@ -16,7 +16,7 @@ public class Particle implements ParticleProvider<SimpleParticleType> {
         this.sprite = sprite;
     }
 
-    public net.minecraft.client.particle.Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double r, double g, double b) {
+    public net.minecraft.client.particle.Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double r, double g, double b, RandomSource random) {
         var particle = new CustomParticle(level, x, y, z,
             0.5d - RANDOM.nextDouble(), 0.5d - RANDOM.nextDouble(), 0.5d - RANDOM.nextDouble(), this.sprite);
         particle.setLifetime(10 + RANDOM.nextInt(10));

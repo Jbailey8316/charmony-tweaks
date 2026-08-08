@@ -27,7 +27,7 @@ public class Handlers extends Setup<SpawnersDropItems> {
     }
 
     public void blockBreak(Level level, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity) {
-        if (level.isClientSide) return;
+        if (level.isClientSide()) return;
         if (feature().onlyPeaceful() && level.getDifficulty() != Difficulty.PEACEFUL) return;
 
         if (state.getBlock() == Blocks.SPAWNER && blockEntity instanceof SpawnerBlockEntity spawner) {

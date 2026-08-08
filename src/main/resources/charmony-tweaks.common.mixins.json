@@ -19,7 +19,7 @@
     "item_restocking.ComposterBlockMixin",
     "item_restocking.ParrotMixin",
     "mineshaft_improvements.MineshaftPiecesMixin",
-    "parrots_stay_on_shoulder.PlayerMixin",
+    "parrots_stay_on_shoulder.ServerPlayerMixin",
     "piglin_pointing.PiglinAiMixin",
     "pigs_find_mushrooms.PigMixin",
     "repair_cost_unlimited.AnvilMenuMixin",

@@ -44,7 +44,7 @@ public class Registers extends Setup<ItemTidying> {
         this.tidyInventoryKey = KeyBindingHelper.registerKeyBinding(new KeyMapping(
             "key.charmony.tidyInventory",
             GLFW.GLFW_KEY_APOSTROPHE,
-            "key.categories.inventory"));
+            KeyMapping.Category.INVENTORY));
     }
 
     @Override

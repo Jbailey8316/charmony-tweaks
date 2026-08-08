@@ -6,6 +6,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
@@ -57,7 +58,7 @@ public class Handlers extends Setup<CropReplanting> {
             }
         }
 
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             var serverPlayer = (ServerPlayer)player;
             var serverLevel = (ServerLevel)serverPlayer.level();
             var drops = Block.getDrops(state, serverLevel, pos, null, player, ItemStack.EMPTY);
@@ -90,7 +91,8 @@ public class Handlers extends Setup<CropReplanting> {
 
             // Damage the hoe a bit.
             if (!player.getAbilities().instabuild) {
-                held.hurtAndBreak(1, player, Player.getSlotForHand(hand));
+                var slot = hand == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND;
+                held.hurtAndBreak(1, player, slot);
             }
 
             return InteractionResult.CONSUME;

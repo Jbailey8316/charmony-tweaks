@@ -33,7 +33,7 @@ public class Handlers extends Setup<VillagerAttracting> {
     }
 
     public void playerTick(Player player) {
-        if (!player.level().isClientSide
+        if (!player.level().isClientSide()
             && player.level().getGameTime() % 40 == 0
             && player.getMainHandItem().is(Tags.VILLAGER_LOVED)
         ) {

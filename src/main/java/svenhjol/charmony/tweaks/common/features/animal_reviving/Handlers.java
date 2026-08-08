@@ -27,7 +27,7 @@ public class Handlers extends Setup<AnimalReviving> {
         if (entity instanceof OwnableEntity animal
             && entity.hasCustomName()
             && animal.getOwner() != null
-            && !entity.level().isClientSide)
+            && !entity.level().isClientSide())
         {
             var level = entity.level();
             var pos = entity.blockPosition();
@@ -64,7 +64,7 @@ public class Handlers extends Setup<AnimalReviving> {
         var stack = player.getItemInHand(hand);
         var otherStack = player.getItemInHand(otherHand);
 
-        if (level.isClientSide
+        if (level.isClientSide()
             || !stack.is(Items.NAME_TAG)
             || !otherStack.is(Items.TOTEM_OF_UNDYING)
             || !stack.has(feature().registers.data)

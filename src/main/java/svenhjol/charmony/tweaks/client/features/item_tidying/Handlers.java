@@ -8,6 +8,7 @@ import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
+import net.minecraft.client.input.KeyEvent;
 import net.minecraft.world.inventory.ClickType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.Item;
@@ -35,8 +36,8 @@ public class Handlers extends Setup<ItemTidying> {
         super(feature);
     }
 
-    public void handleKeypress(int i, int j, int k) {
-        if (containerScreen == null || !feature().registers.tidyInventoryKey.matches(i, j)) return;
+    public void handleKeypress(KeyEvent keyEvent) {
+        if (containerScreen == null || !feature().registers.tidyInventoryKey.matches(keyEvent)) return;
 
         if (feature().keybindSortsMultipleInventories()) {
             sortContainer();

@@ -26,7 +26,7 @@
         {
           "type": "minecraft:item",
           "weight": 1,
-          "name": "chain",
+          "name": "iron_chain",
           "functions": [
             {
               "function": "minecraft:set_components",

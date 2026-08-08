@@ -52,7 +52,7 @@ public class Handlers extends Setup<SuspiciousBlockCreating> {
             itemEntity.kill(serverLevel);
 
             // Do advancement for nearby players
-            if (!level.isClientSide) {
+            if (!level.isClientSide()) {
                 feature().advancements.createdSuspiciousBlock((ServerLevel) level, pos);
             }
         }
@@ -75,7 +75,7 @@ public class Handlers extends Setup<SuspiciousBlockCreating> {
             brushable.lootTable = null;
             brushable.item = stack.copy();
 
-            if (level.isClientSide) {
+            if (level.isClientSide()) {
                 var random = level.getRandom();
                 for (int i = 0; i < 18; i++) {
                     level.addParticle(ParticleTypes.ASH,

@@ -58,7 +58,7 @@ public class Handlers extends Setup<MineshaftImprovements> {
                         var state = getRandom(registers.blocksForCeiling, random);
 
                         // if the ceiling block is a chain then attach a hanging lantern to it
-                        if (state.getBlock() == Blocks.CHAIN) {
+                        if (state.getBlock() == Blocks.IRON_CHAIN) {
                             piece.placeBlock(level, Blocks.LANTERN.defaultBlockState().setValue(LanternBlock.HANGING, true), x, 1, z, box);
                         }
 

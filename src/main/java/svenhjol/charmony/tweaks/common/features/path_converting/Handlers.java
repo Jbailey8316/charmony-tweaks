@@ -4,6 +4,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ShovelItem;
@@ -26,7 +27,7 @@ public class Handlers extends Setup<PathConverting> {
         if (feature().allowPathToDirt() && stack.getItem() instanceof HoeItem && state.is(Blocks.DIRT_PATH)) {
             player.swing(hand);
 
-            if (!level.isClientSide) {
+            if (!level.isClientSide()) {
                 level.setBlock(pos, Blocks.DIRT.defaultBlockState(), 11);
                 level.playSound(null, pos, feature().registers.pathToDirtSound.get(), SoundSource.BLOCKS, 1.0f, 1.0f);
                 feature().advancements.convertedPathToDirt((ServerPlayer) player);
@@ -37,7 +38,7 @@ public class Handlers extends Setup<PathConverting> {
         } else if (feature().allowDirtToPath() && stack.getItem() instanceof ShovelItem && state.is(Blocks.DIRT)) {
             player.swing(hand);
 
-            if (!level.isClientSide) {
+            if (!level.isClientSide()) {
                 level.setBlock(pos, Blocks.DIRT_PATH.defaultBlockState(), 11);
                 level.playSound(null, pos, feature().registers.dirtToPathSound.get(), SoundSource.BLOCKS, 1.0f, 1.0f);
                 feature().advancements.convertedDirtToPath((ServerPlayer) player);
@@ -47,7 +48,8 @@ public class Handlers extends Setup<PathConverting> {
 
         if (success) {
             if (!player.getAbilities().instabuild) {
-                stack.hurtAndBreak(1, player, Player.getSlotForHand(hand));
+                var slot = hand == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND;
+                stack.hurtAndBreak(1, player, slot);
             }
             return InteractionResult.SUCCESS;
         }
