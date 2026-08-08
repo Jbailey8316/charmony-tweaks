@@ -25,6 +25,7 @@
     "repair_cost_unlimited.AnvilMenuMixin",
     "respawn_anchors_work_everywhere.RespawnAnchorBlockMixin",
     "suspicious_block_creating.PistonBaseBlockMixin",
+    "suspicious_block_creating.BrushableBlockMixin",
     "torchflowers_emit_light.BlockBehaviourPropertiesMixin",
     "totems_work_from_inventory.LivingEntityMixin",
     "villager_attracting.VillagerMixin",
