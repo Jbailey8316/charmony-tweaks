@@ -6,7 +6,7 @@ import svenhjol.charmony.tweaks.TweaksMod;
 import svenhjol.charmony.tweaks.client.features.burning_has_reduced_view_blocking.BurningHasReducedViewBlocking;
 import svenhjol.charmony.tweaks.client.features.chiseled_bookshelves_show_book_on_hover.ChiseledBookshelvesShowBookOnHover;
 import svenhjol.charmony.tweaks.client.features.compasses_show_position.CompassesShowPosition;
-import svenhjol.charmony.tweaks.client.features.crafting_table_nearby.CraftingTableNearby;
+import svenhjol.charmony.tweaks.client.features.crafting_from_inventory.CraftingFromInventoryClient;
 import svenhjol.charmony.tweaks.client.features.grindstone_disenchanting.GrindstoneDisenchanting;
 import svenhjol.charmony.tweaks.client.features.item_frame_hiding.ItemFrameHiding;
 import svenhjol.charmony.tweaks.client.features.item_tidying.ItemTidying;
@@ -39,7 +39,7 @@ public class ClientInitializer implements ClientModInitializer {
             BurningHasReducedViewBlocking.class,
             ChiseledBookshelvesShowBookOnHover.class,
             CompassesShowPosition.class,
-            CraftingTableNearby.class,
+            CraftingFromInventoryClient.class,
             GrindstoneDisenchanting.class,
             ItemFrameHiding.class,
             ItemTidying.class,

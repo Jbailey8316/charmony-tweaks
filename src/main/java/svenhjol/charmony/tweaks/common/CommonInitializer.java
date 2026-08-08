@@ -9,6 +9,7 @@ import svenhjol.charmony.tweaks.common.features.animal_reviving.AnimalReviving;
 import svenhjol.charmony.tweaks.common.features.campfires_heal_players.CampfiresHealPlayers;
 import svenhjol.charmony.tweaks.common.features.chiseled_bookshelves_show_book_on_hover.ChiseledBookshelvesShowBookOnHover;
 import svenhjol.charmony.tweaks.common.features.compact_recipes.CompactRecipes;
+import svenhjol.charmony.tweaks.common.features.crafting_from_inventory.CraftingFromInventory;
 import svenhjol.charmony.tweaks.common.features.crop_feather_falling.CropFeatherFalling;
 import svenhjol.charmony.tweaks.common.features.crop_replanting.CropReplanting;
 import svenhjol.charmony.tweaks.common.features.deepslate_dungeons.DeepslateDungeons;
@@ -51,6 +52,7 @@ public class CommonInitializer implements ModInitializer {
             CampfiresHealPlayers.class,
             ChiseledBookshelvesShowBookOnHover.class,
             CompactRecipes.class,
+            CraftingFromInventory.class,
             CropFeatherFalling.class,
             CropReplanting.class,
             DeepslateDungeons.class,
