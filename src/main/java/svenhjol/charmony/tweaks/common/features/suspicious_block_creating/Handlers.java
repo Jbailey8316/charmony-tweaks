@@ -74,6 +74,7 @@ public class Handlers extends Setup<SuspiciousBlockCreating> {
             var brushable = opt.get();
             brushable.lootTable = null;
             brushable.item = stack.copy();
+            brushable.setChanged();
 
             if (level.isClientSide()) {
                 var random = level.getRandom();
