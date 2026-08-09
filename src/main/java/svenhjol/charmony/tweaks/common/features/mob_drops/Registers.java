@@ -21,7 +21,6 @@ public class Registers extends Setup<MobDrops> {
         drops.add(new ChickenDrops(feature));
         drops.add(new GoatDrops(feature));
         drops.add(new HuskDrops(feature));
-        drops.add(new MoobloomHeadDrops(feature));
         drops.add(new WitchDrops(feature));
 
         var registry = CommonRegistry.forFeature(feature);
