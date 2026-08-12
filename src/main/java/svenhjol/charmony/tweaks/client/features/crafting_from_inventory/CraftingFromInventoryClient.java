@@ -5,12 +5,15 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.ImageButton;
+import net.minecraft.client.gui.components.Tooltip;
+import net.minecraft.client.gui.components.WidgetSprites;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.network.chat.Component;
 import org.lwjgl.glfw.GLFW;
 import svenhjol.charmony.api.core.FeatureDefinition;
 import svenhjol.charmony.api.core.Side;
+import svenhjol.charmony.core.Charmony;
 import svenhjol.charmony.core.base.Mod;
 import svenhjol.charmony.core.base.SidedFeature;
 import svenhjol.charmony.tweaks.TweaksMod;
@@ -39,9 +42,17 @@ public final class CraftingFromInventoryClient extends SidedFeature {
             if (screen instanceof InventoryScreen inventory) {
                 var left = (width - 176) / 2;
                 var top = (height - 166) / 2;
-                var button = Button.builder(Component.translatable("key.charmony.open_portable_crafting"),
-                    ignored -> Networking.C2SOpenPortableCrafting.send())
-                    .bounds(left + 127, top + 4, 20, 20).build();
+                var tooltip = Tooltip.create(Component.translatable("key.charmony.open_portable_crafting"));
+                var sprites = new WidgetSprites(
+                    Charmony.id("widget/crafting_from_inventory/crafting_button"),
+                    Charmony.id("widget/crafting_from_inventory/crafting_button"),
+                    Charmony.id("widget/crafting_from_inventory/crafting_button_highlighted"),
+                    Charmony.id("widget/crafting_from_inventory/crafting_button_highlighted")
+                );
+                var button = new ImageButton(left + 153, top + 40, 18, 18, sprites,
+                    ignored -> Networking.C2SOpenPortableCrafting.send(),
+                    Component.translatable("key.charmony.open_portable_crafting"));
+                button.setTooltip(tooltip);
                 button.visible = hasTable(client);
                 screen.addRenderableWidget(button);
             }
