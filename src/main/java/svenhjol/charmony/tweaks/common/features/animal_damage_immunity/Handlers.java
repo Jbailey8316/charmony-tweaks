@@ -41,6 +41,6 @@ public class Handlers extends Setup<AnimalDamageImmunity> {
 
     public boolean isPet(Entity entity) {
         return (entity instanceof TamableAnimal && ((TamableAnimal) entity).isTame())
-            || (entity instanceof OwnableEntity && ((OwnableEntity) entity).getOwner() != null);
+            || (entity instanceof OwnableEntity ownable && ownable.getOwnerReference() != null);
     }
 }

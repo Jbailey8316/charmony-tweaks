@@ -22,7 +22,10 @@ public enum MobType implements StringRepresentable {
     }
 
     public ResourceLocation customTexture(Mod mod, String texture) {
-        return ResourceLocation.tryBuild(mod.id(), "textures/entity/" + this.getSerializedName() + "/" + texture + ".png");
+        // Charmony Tweaks' resources intentionally use the shared Charmony
+        // namespace (assets/charmony/...), rather than the module id
+        // charmony-tweaks.
+        return ResourceLocation.tryBuild("charmony", "textures/entity/" + this.getSerializedName() + "/" + texture + ".png");
     }
 
     @Override

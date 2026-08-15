@@ -26,7 +26,7 @@ public class Handlers extends Setup<AnimalReviving> {
     public void entityKilled(LivingEntity entity, DamageSource source) {
         if (entity instanceof OwnableEntity animal
             && entity.hasCustomName()
-            && animal.getOwner() != null
+            && animal.getOwnerReference() != null
             && !entity.level().isClientSide())
         {
             var level = entity.level();

@@ -8,11 +8,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.npc.WanderingTrader;
 
 import javax.annotation.Nullable;
-import java.util.UUID;
-
 public class CustomWanderingTraderRenderer extends WanderingTraderRenderer implements CustomRenderer {
-    private UUID uuid;
-
     public CustomWanderingTraderRenderer(EntityRendererProvider.Context context) {
         super(context);
         handlers.fillLayersFromOld(context, this, EntityType.WANDERING_TRADER);
@@ -21,12 +17,18 @@ public class CustomWanderingTraderRenderer extends WanderingTraderRenderer imple
     @Override
     @Nullable
     public ResourceLocation getTextureLocation(VillagerRenderState villagerRenderState) {
-        return handlers.texture(uuid, registers.wanderingTraders);
+        var state = (CustomVillagerRenderState) villagerRenderState;
+        return handlers.texture(state.uuid, registers.wanderingTraders);
+    }
+
+    @Override
+    public VillagerRenderState createRenderState() {
+        return new CustomVillagerRenderState();
     }
 
     @Override
     public void extractRenderState(WanderingTrader wanderingTrader, VillagerRenderState villagerRenderState, float f) {
         super.extractRenderState(wanderingTrader, villagerRenderState, f);
-        this.uuid = wanderingTrader.getUUID();
+        ((CustomVillagerRenderState) villagerRenderState).uuid = wanderingTrader.getUUID();
     }
 }

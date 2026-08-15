@@ -27,6 +27,12 @@ public class Registers extends Setup<MobTextures> {
         return () -> {
             var registry = ClientRegistry.forFeature(feature());
 
+            // Populate the available texture list before the first entity is
+            // rendered. The old player-load-only initialization can miss the
+            // already loaded local player in modern client startup.
+            setupCustomTextures(snowGolems, MobType.SNOW_GOLEM, "snow_golem", 5, true);
+            setupCustomTextures(wanderingTraders, MobType.WANDERING_TRADER, "wandering_trader", 4, true);
+
             if (feature().snowGolems()) {
                 registry.entityRenderer(EntityType.SNOW_GOLEM, CustomSnowGolemRenderer::new);
             }
