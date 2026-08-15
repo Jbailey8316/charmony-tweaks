@@ -1,4 +1,12 @@
 {
+  "bat_bucket_grab": {
+    "sounds": [{ "name": "charmony:bat_bucket_grab", "volume": 1.0 }],
+    "subtitle": "subtitles.charmony.item.bat_bucket.grab"
+  },
+  "bat_bucket_release": {
+    "sounds": [{ "name": "charmony:bat_bucket_release", "volume": 1.0 }],
+    "subtitle": "subtitles.charmony.item.bat_bucket.release"
+  },
   "convert_dirt_to_path": {
     "sounds": [
       {

@@ -4,6 +4,7 @@ import net.fabricmc.api.ClientModInitializer;
 import svenhjol.charmony.api.core.Side;
 import svenhjol.charmony.tweaks.TweaksMod;
 import svenhjol.charmony.tweaks.client.features.burning_has_reduced_view_blocking.BurningHasReducedViewBlocking;
+import svenhjol.charmony.tweaks.client.features.bat_buckets.BatBucketsClient;
 import svenhjol.charmony.tweaks.client.features.chiseled_bookshelves_show_book_on_hover.ChiseledBookshelvesShowBookOnHover;
 import svenhjol.charmony.tweaks.client.features.compasses_show_position.CompassesShowPosition;
 import svenhjol.charmony.tweaks.client.features.crafting_from_inventory.CraftingFromInventoryClient;
@@ -36,6 +37,7 @@ public class ClientInitializer implements ClientModInitializer {
         // Prepare and run the mod.
         var tweaks = TweaksMod.instance();
         tweaks.addSidedFeatures(List.of(
+            BatBucketsClient.class,
             BurningHasReducedViewBlocking.class,
             ChiseledBookshelvesShowBookOnHover.class,
             CompassesShowPosition.class,

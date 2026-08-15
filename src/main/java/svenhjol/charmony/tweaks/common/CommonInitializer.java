@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 import svenhjol.charmony.api.core.Side;
 import svenhjol.charmony.tweaks.TweaksMod;
 import svenhjol.charmony.tweaks.common.features.beacons_heal_mobs.BeaconsHealMobs;
+import svenhjol.charmony.tweaks.common.features.bat_buckets.BatBuckets;
 import svenhjol.charmony.tweaks.common.features.animal_armor_grinding.AnimalArmorGrinding;
 import svenhjol.charmony.tweaks.common.features.animal_damage_immunity.AnimalDamageImmunity;
 import svenhjol.charmony.tweaks.common.features.animal_reviving.AnimalReviving;
@@ -48,6 +49,7 @@ public class CommonInitializer implements ModInitializer {
         var tweaks = TweaksMod.instance();
         tweaks.addSidedFeatures(List.of(
             BeaconsHealMobs.class,
+            BatBuckets.class,
             AnimalArmorGrinding.class,
             AnimalDamageImmunity.class,
             AnimalReviving.class,

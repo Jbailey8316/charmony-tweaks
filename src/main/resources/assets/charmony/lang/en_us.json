@@ -1,4 +1,12 @@
 {
+  "item.charmony.bat_bucket": "Bat in a Bucket",
+  "effect.charmony.echolocation": "Echolocation",
+  "advancements.charmony.capture_bat.title": "Bucket List",
+  "advancements.charmony.capture_bat.description": "Capture a bat using a bucket",
+  "advancements.charmony.used_bat_bucket.title": "Ultrasonic",
+  "advancements.charmony.used_bat_bucket.description": "Reveal mobs through walls by releasing a bat from a bucket",
+  "subtitles.charmony.item.bat_bucket.grab": "Bat grabbed in bucket",
+  "subtitles.charmony.item.bat_bucket.release": "Bat escapes from bucket",
   "advancements.charmony.tweaks.title": "Tweaks",
   "advancements.charmony.tweaks.description": "Small changes to vanilla behaviors",
   "advancements.charmony.attracted_villager.title": "Star Attraction",
