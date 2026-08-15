@@ -9,6 +9,7 @@
   },
   "mixins": [
     "animal_damage_immunity.LivingEntityMixin",
+    "animal_reviving.ItemEntityMixin",
     "animal_reviving.LivingEntityMixin",
     "animal_reviving.NameTagItemMixin",
     "campfires_heal_players.CampfireBlockEntityMixin",
