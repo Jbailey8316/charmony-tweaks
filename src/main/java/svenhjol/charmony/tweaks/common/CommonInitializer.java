@@ -19,6 +19,7 @@ import svenhjol.charmony.tweaks.common.features.grindstone_disenchanting.Grindst
 import svenhjol.charmony.tweaks.common.features.item_frame_hiding.ItemFrameHiding;
 import svenhjol.charmony.tweaks.common.features.item_repairing.ItemRepairing;
 import svenhjol.charmony.tweaks.common.features.item_restocking.ItemRestocking;
+import svenhjol.charmony.tweaks.common.features.lower_noteblock_pitch.LowerNoteblockPitch;
 import svenhjol.charmony.tweaks.common.features.mineshaft_improvements.MineshaftImprovements;
 import svenhjol.charmony.tweaks.common.features.mob_drops.MobDrops;
 import svenhjol.charmony.tweaks.common.features.nether_portal_blocks.NetherPortalBlocks;
@@ -64,6 +65,7 @@ public class CommonInitializer implements ModInitializer {
             ItemFrameHiding.class,
             ItemRepairing.class,
             ItemRestocking.class,
+            LowerNoteblockPitch.class,
             MineshaftImprovements.class,
             MobDrops.class,
             NetherPortalBlocks.class,
