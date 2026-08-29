@@ -11,4 +11,8 @@ public class ChiseledBookshelvesShowBookOnHover extends SidedFeature {
     public ChiseledBookshelvesShowBookOnHover(Mod mod) {
         super(mod);
     }
+
+    public static ChiseledBookshelvesShowBookOnHover feature() {
+        return Mod.getSidedFeature(ChiseledBookshelvesShowBookOnHover.class);
+    }
 }

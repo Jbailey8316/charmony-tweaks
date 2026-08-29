@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.entity.ChiseledBookShelfBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.TagValueOutput;
 import org.spongepowered.asm.mixin.Mixin;
-import svenhjol.charmony.tweaks.client.features.chiseled_bookshelves_show_book_on_hover.ChiseledBookshelvesShowBookOnHover;
+import svenhjol.charmony.tweaks.common.features.chiseled_bookshelves_show_book_on_hover.ChiseledBookshelvesShowBookOnHover;
 
 import javax.annotation.Nullable;
 
